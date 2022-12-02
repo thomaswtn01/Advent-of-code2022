@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+
+import fileinput
+
+victoire = 6
+nul = 3
+defaite = 0
+X = 1 #pierre PERDRE
+Y = 2 #papier NUL
+Z = 3 #ciseaux GAGNE
+score = 0
+for line in fileinput.input():
+    if("A X" in line):
+        score += (defaite + 3)
+    if("A Y" in line):
+        score += (nul + 1)
+    if("A Z" in line):
+        score += (victoire +2)      
+    if("B X" in line):
+        score += (defaite + 1)
+    if("B Y" in line):
+        score += (nul + 2)
+    if("B Z" in line):
+        score += (victoire + 3)
+    if("C X" in line):
+        score += (defaite + 2)
+    if("C Y" in line):
+        score += (nul + 3)
+    if("C Z" in line):
+        score += (victoire + 1)
+print(score)
+ 
+
+
+
