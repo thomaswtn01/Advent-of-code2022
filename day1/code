@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+
+import fileinput
+
+numb  = 0
+numb2= [0,0,0,0]
+
+for line in fileinput.input():
+    if line.strip():
+        t += int(line.strip())
+    else:
+        numb[0] = t
+        numb.sort()
+        t = 0
