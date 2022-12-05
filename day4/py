@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+
+import fileinput
+import string
+
+nb = 0
+total = 0
+cc = 0
+for line in fileinput.input():
+    str1 = line.replace(",","-")
+    str1 = str1.split("-")
+    if(((int(str1[0]) >= int(str1[2])) and (int(str1[0]) <= int(str1[3]))) or ((int(str1[2]) <= int(str1[1])) and (int(str1[2]) >= int(str1[0])))):
+        cc += 1
+        print(cc)
+    else : 
+        print('non')
+
+
+    
