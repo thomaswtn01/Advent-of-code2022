@@ -1,0 +1,123 @@
+#!/usr/bin/python3
+
+import fileinput
+import string
+
+liste1 = ["B", "V", "S", "N", "T", "C", "H", "Q"]
+liste2 = ["W", "D", "B", "G"]
+liste3 = ["F", "W", "R", "T", "S", "Q", "B"]
+liste4 = ["L", "G", "W", "S", "Z", "J", "D", "N"]
+liste5 = ["M", "P", "D", "V", "F"]
+liste6 = ["F", "W", "J"]
+liste7 = ["L", "N", "Q", "B", "J", "V"]
+liste8 = ["G", "T", "R", "C", "J", "Q", "S", "N"]
+liste9 = ["J", "S", "Q", "C", "W", "D", "M"]
+
+nb = 0
+base = 0
+to = 0
+for line in fileinput.input():
+    nb = 0
+    base = 0
+    to = 0
+    if(line[6] == ' '):
+        nb = int(line[5])
+        base = int(line[12])
+        to = int(line[17])
+    else:
+        nb = int(line[5:7])
+        base = int(line[13])
+        to = int(line[18])
+
+    print(nb)
+
+    if(to ==1) :
+        towhat=liste1
+    if(to ==2) :
+        towhat=liste2
+    if(to ==3) :
+        towhat=liste3
+    if(to ==4) :
+        towhat=liste4
+    if(to ==5) :
+        towhat=liste5
+    if(to ==6) :
+        towhat=liste6
+    if(to ==7) :
+        towhat=liste7
+    if(to ==8) :
+        towhat=liste8
+    if(to ==9) :
+        towhat=liste9
+
+    if(base == 1) :
+        fromwhat=liste1
+    if(base == 2) :
+        fromwhat=liste2
+    if(base == 3) :
+        fromwhat=liste3
+    if(base == 4) :
+        fromwhat=liste4
+    if(base == 5) :
+        fromwhat=liste5
+    if(base == 6) :
+        fromwhat=liste6
+    if(base == 7) :
+        fromwhat=liste7
+    if(base == 8) :
+        fromwhat=liste8
+    if(base == 9) :
+        fromwhat=liste9
+
+while(nb != 0):
+    towhat.append(fromwhat.pop((len(fromwhat))-1))
+    if(to ==1) :
+        liste1=towhat
+    if(to ==2) :
+        liste2=towhat
+    if(to ==3) :
+        liste3=towhat
+    if(to ==4) :
+        liste4=towhat
+    if(to ==5) :
+        liste5=towhat
+    if(to ==6) :
+        liste6=towhat
+    if(to ==7) :
+        liste7=towhat
+    if(to ==8) :
+        liste8=towhat
+    if(to ==9) :
+        liste9=towhat
+
+    if(base == 1) :
+        liste1=fromwhat
+    if(base == 2) :
+        liste2=fromwhat
+    if(base == 3) :
+        liste3=fromwhat
+    if(base == 4) :
+        liste4=fromwhat
+    if(base == 5) :
+        liste5=fromwhat
+    if(base == 6) :
+        liste6=fromwhat
+    if(base == 7) :
+        liste7=fromwhat
+    if(base == 8) :
+        liste8=fromwhat
+    if(base == 9) :
+        liste9=fromwhat
+
+print(liste1)
+print(liste2)
+print(liste3)
+print(liste4)
+print(liste5)
+print(liste6)
+print(liste7)
+print(liste8)
+print(liste9)
+
+
+    
