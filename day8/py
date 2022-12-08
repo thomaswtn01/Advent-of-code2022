@@ -1,0 +1,126 @@
+#!/usr/bin/python3
+
+import fileinput
+import string
+
+calc = 0
+sauv = 0
+visible = 0
+lignei = 0
+colonnei = 0
+j = 1
+buff = 1
+nul = 0
+nuligne = 0
+nulcolonne = 0
+vuearbre_haut = 0
+vuearbre_bas = 0
+vuearbre_gauche = 0
+vuearbre_droite  = 0
+stopligne = 0
+stopcolonne = 0
+mylist = []
+
+for line in fileinput.input():
+    mylist.append(line)
+    calc +=1
+
+
+# mylist = mylist[1:len(mylist)-1]
+
+while (j != len(mylist) - 1) : 
+
+    while(buff != len(mylist[0]) - 2):
+
+        while (lignei != len(mylist[j]) - 1):
+
+            if((buff == lignei) and nuligne == 0):
+                nuligne = -100
+            elif((buff == lignei) and nuligne != 0) :
+                nuligne = 0
+
+            if( (int(mylist[j][buff])) > (int(mylist[j][lignei]))) :
+                print('OK')
+                if(lignei <= buff) :
+                    vuearbre_gauche+=1
+                if(lignei > buff):
+                    if(stopligne == 0):
+                        vuearbre_droite +=1
+
+            else:
+                if (lignei < buff) :
+                    vuearbre_gauche=1
+                if (lignei > buff):
+                    vuearbre_droite +=1 
+                    stopligne = 1
+                print('CACA')
+                nuligne +=1
+            lignei = lignei + 1
+
+        while(colonnei != len(mylist)):
+
+            if((j == colonnei) and nulcolonne == 0):
+                nulcolonne = -100
+
+            elif((j == colonnei) and nulcolonne != 0):
+                nulcolonne = 0
+
+            if( (int(mylist[j][buff])) > (int(mylist[colonnei][buff]))) :
+                print('OK')
+                if(colonnei <= j):
+                    vuearbre_haut+=1
+                    print("vue haut", vuearbre_haut)
+                if(colonnei > j):
+                    print("STOP", stopcolonne)
+                    if(stopcolonne == 0):
+                        vuearbre_bas +=1
+            else:
+                if(colonnei < j):
+                    vuearbre_haut = 1
+                if(colonnei > j):
+                    vuearbre_bas +=1
+                    stopcolonne = 1
+                print('CACA')
+                nulcolonne +=1
+            colonnei = colonnei + 1
+
+        print("je vois a gauche", vuearbre_gauche, "je vois a droite" , vuearbre_droite, "je vois en haut", vuearbre_haut, "je vois en bas", vuearbre_bas, "pour larbre", int(mylist[j][buff]))
+
+        calc = vuearbre_haut * vuearbre_gauche * vuearbre_droite * vuearbre_bas
+
+        if(sauv <= calc):
+            sauv = calc
+        print("WIWNWIWNWIW", sauv)
+        stopligne = 0
+        stopcolonne = 0
+        nuligne = 0
+        nulcolonne = 0
+        lignei = 0
+        colonnei = 0
+        vuearbre_gauche = 0
+        vuearbre_droite = 0
+        vuearbre_haut= 0
+        vuearbre_bas = 0
+        calc = 0
+        buff+=1
+
+    buff = 1
+    j += 1
+
+
+# visible += 99*2
+# visible += 99*2
+
+# visible -= 4
+print(visible)
+
+
+
+
+
+    #     visible += len(line)
+    # else: 
+    #     while(line[i] != len(line)):
+    #         if(((int(line[i]) > int(line[i+1])) and (int(line[i]) > int(line[i-1]) ))):
+    #             i+=1
+    #         print(line[i])
