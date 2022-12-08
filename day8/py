@@ -53,7 +53,6 @@ while (j != len(mylist) - 1) :
                 if (lignei > buff):
                     vuearbre_droite +=1 
                     stopligne = 1
-                print('CACA')
                 nuligne +=1
             lignei = lignei + 1
 
@@ -69,7 +68,6 @@ while (j != len(mylist) - 1) :
                 print('OK')
                 if(colonnei <= j):
                     vuearbre_haut+=1
-                    print("vue haut", vuearbre_haut)
                 if(colonnei > j):
                     print("STOP", stopcolonne)
                     if(stopcolonne == 0):
@@ -80,11 +78,9 @@ while (j != len(mylist) - 1) :
                 if(colonnei > j):
                     vuearbre_bas +=1
                     stopcolonne = 1
-                print('CACA')
                 nulcolonne +=1
             colonnei = colonnei + 1
 
-        print("je vois a gauche", vuearbre_gauche, "je vois a droite" , vuearbre_droite, "je vois en haut", vuearbre_haut, "je vois en bas", vuearbre_bas, "pour larbre", int(mylist[j][buff]))
 
         calc = vuearbre_haut * vuearbre_gauche * vuearbre_droite * vuearbre_bas
 
